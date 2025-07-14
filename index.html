@@ -2,3 +2,23 @@
 <!-- Nội dung đã được tạo ở ChatGPT, bạn có thể thay ảnh tại cùng thư mục -->
 <!-- placeholder.jpg = ảnh cưới | wedding_background.jpg = nền | QR code như tên -->
 <!-- Up lên GitHub Pages hoặc Vercel để chia sẻ -->
+<script>
+  window.onload = function () {
+    const eventDate = new Date("2025-07-19T17:30:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      if (distance < 0) {
+        countdownEl.innerText = "Đã diễn ra!";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerText = `${days} ngày ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  }
+</script>
